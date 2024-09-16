@@ -1,0 +1,8 @@
+Vantagens:
+- O timeout impede que o cliente fique travado indefinidamente esperando por dados que o servidor não vai mais enviar, o que é crucial em ambientes onde a confiabilidade da conexão não pode ser garantida.
+- É uma solução simples de implementar e não requer alterações complexas no protocolo de comunicação ou no servidor.
+
+Desvantagens:
+- Determinar o valor correto para o timeout pode ser complicado. Um valor muito baixo pode fazer com que o cliente pare de receber dados antes que o servidor tenha terminado de enviar o arquivo, especialmente em redes com latência elevada.
+- Se o servidor enviar os dados de forma intermitente, o cliente pode atingir o timeout sem necessidade, resultando em perda de dados.
+- Não há garantia de que o arquivo será recebido completamente se o timeout for acionado, o que pode levar à necessidade de reenvio do arquivo.

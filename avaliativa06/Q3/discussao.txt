@@ -1,0 +1,13 @@
+Os programas desenvolvidos nas questões 1 e 2, apesar de funcionarem corretamente para arquivos pequenos, enfrentam dificuldades ao transferir arquivos grandes devido a várias limitações intrínsecas ao protocolo UDP.
+
+Primeiramente, o UDP é um protocolo sem conexão que não garante a entrega dos pacotes. Ao enviar arquivos grandes, 
+os pacotes podem ser fragmentados e, se qualquer fragmento for perdido, o arquivo recebido pode ser corrompido ou incompleto.
+Isso é agravado pelo fato de que o UDP não possui mecanismos de retransmissão de pacotes, ao contrário do TCP.
+
+Além disso, o tamanho máximo de um pacote UDP é limitado. Embora seja possível enviar pacotes de até 65.535 bytes, muitos 
+sistemas operacionais e dispositivos de rede impõem limites menores para evitar problemas de fragmentação. Quando 
+fragmentos são perdidos, a recepção do arquivo é prejudicada.
+
+Por essas razões, os programas desenvolvidos não são adequados para a transferência de arquivos grandes. Uma solução mais 
+robusta seria o uso do protocolo TCP, que garante a entrega ordenada e completa dos dados, ou a divisão do arquivo em 
+partes menores com algum mecanismo para garantir que todas as partes sejam recebidas corretamente.

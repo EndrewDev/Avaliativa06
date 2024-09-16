@@ -1,0 +1,11 @@
+Vantagens:
+Precisão no Controle de Recepção: O cliente pode saber exatamente quando parar de receber dados, eliminando a necessidade 
+de adivinhar se a transmissão foi concluída.
+Redução do Risco de Travamento: Ao saber o tamanho exato do arquivo, o cliente evita ficar preso em loops de recepção, 
+esperando por mais dados que o servidor já terminou de enviar.
+
+Desvantagens:
+Overhead Adicional: Enviar o tamanho do arquivo adiciona um pequeno overhead ao processo de comunicação, o que pode ser 
+insignificante para arquivos pequenos, mas pode impactar a performance em redes com alta latência.
+Dependência de um Canal Confiável: Essa solução pressupõe que o cliente receba corretamente o tamanho do arquivo. 
+Se essa mensagem inicial for corrompida ou perdida, a recepção do arquivo pode falhar.
